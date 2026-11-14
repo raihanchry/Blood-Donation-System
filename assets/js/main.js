@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener("click", event => {
+
             const target = document.querySelector(
                 link.getAttribute("href")
             );
@@ -22,7 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const registerForm = document.getElementById("registerForm");
 
     if (registerForm) {
+
         registerForm.addEventListener("submit", async event => {
+
             event.preventDefault();
 
             const fullName = document.getElementById("fullName").value.trim();
@@ -35,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const district = document.getElementById("district").value;
             const upazila = document.getElementById("upazila").value.trim();
             const publicConsent = document.getElementById("publicConsent").checked;
+
 
             // Age Validation
             if (!dob) {
@@ -49,26 +53,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (
                 today.getMonth() < birthDate.getMonth() ||
-                (today.getMonth() === birthDate.getMonth() &&
-                 today.getDate() < birthDate.getDate())
+                (
+                    today.getMonth() === birthDate.getMonth() &&
+                    today.getDate() < birthDate.getDate()
+                )
             ) {
                 age--;
             }
 
-            if (age < 18) {
+            if (
+                Number.isNaN(birthDate.getTime()) ||
+                age < 18
+            ) {
                 alert("Registration requires age 18 or above.");
                 return;
             }
 
-            const button = registerForm.querySelector("button[type='submit']");
+
+            // Disable Button
+            const button = registerForm.querySelector(
+                "button[type='submit']"
+            );
+
             button.disabled = true;
             button.textContent = "Creating Account...";
 
+
             try {
-                const { data, error } = await db.auth.signUp({
+
+                // Supabase Registration
+                const { data, error } = await window.db.auth.signUp({
+
                     email,
                     password,
+
                     options: {
+
+                        emailRedirectTo:
+                            "https://bds-gules.vercel.app/member-dashboard.html",
+
                         data: {
                             full_name: fullName,
                             phone: phone,
@@ -79,31 +102,36 @@ document.addEventListener("DOMContentLoaded", () => {
                             upazila: upazila,
                             public_consent: publicConsent
                         }
+
                     }
+
                 });
 
                 if (error) throw error;
 
-               alert(
-    "Registration successful! Please check your email and click the Confirm Email link."
-);
+                alert(
+                    "Registration successful! Please check your email and click the Confirm Email link."
+                );
 
-window.location.href = "login.html";
-
-                // Reset District Dropdown
-                const districtSelect = document.getElementById("district");
-                districtSelect.innerHTML =
-                    '<option value="">Select Division First</option>';
-                districtSelect.disabled = true;
+                window.location.href = "login.html";
 
             } catch (error) {
-                alert("Registration failed: " + error.message);
+
+                console.error("Registration Error:", error);
+
+                alert(
+                    "Registration failed: " + error.message
+                );
 
             } finally {
+
                 button.disabled = false;
                 button.textContent = "Create Account";
+
             }
+
         });
+
     }
 
 
@@ -111,34 +139,56 @@ window.location.href = "login.html";
     const loginForm = document.getElementById("loginForm");
 
     if (loginForm) {
+
         loginForm.addEventListener("submit", async event => {
+
             event.preventDefault();
 
             const email = document.getElementById("loginEmail").value.trim();
             const password = document.getElementById("loginPassword").value;
 
-            const button = loginForm.querySelector("button[type='submit']");
+            const button = loginForm.querySelector(
+                "button[type='submit']"
+            );
+
             button.disabled = true;
             button.textContent = "Logging in...";
 
+
             try {
-                const { data, error } = await db.auth.signInWithPassword({
-                    email,
-                    password
-                });
+
+                // Supabase Login
+                const { data, error } =
+                    await window.db.auth.signInWithPassword({
+
+                        email,
+                        password
+
+                    });
 
                 if (error) throw error;
 
                 alert("Login successful!");
+
                 window.location.href = "member-dashboard.html";
+
             } catch (error) {
-                alert("Login failed: " + error.message);
+
+                console.error("Login Error:", error);
+
+                alert(
+                    "Login failed: " + error.message
+                );
 
             } finally {
+
                 button.disabled = false;
                 button.textContent = "Login";
+
             }
+
         });
+
     }
 
 
@@ -149,6 +199,7 @@ window.location.href = "login.html";
     if (divisionSelect && districtSelect) {
 
         const districts = {
+
             Dhaka: [
                 "Dhaka", "Faridpur", "Gazipur", "Gopalganj",
                 "Kishoreganj", "Madaripur", "Manikganj",
@@ -193,7 +244,9 @@ window.location.href = "login.html";
             Mymensingh: [
                 "Jamalpur", "Mymensingh", "Netrokona", "Sherpur"
             ]
+
         };
+
 
         divisionSelect.addEventListener("change", function () {
 
@@ -206,17 +259,25 @@ window.location.href = "login.html";
 
             if (!selectedDivision) return;
 
-            districts[selectedDivision].forEach(district => {
+            const selectedDistricts = districts[selectedDivision];
+
+            if (!selectedDistricts) return;
+
+            selectedDistricts.forEach(district => {
+
                 const option = document.createElement("option");
 
                 option.value = district;
                 option.textContent = district;
 
                 districtSelect.appendChild(option);
+
             });
 
             districtSelect.disabled = false;
+
         });
+
     }
 
 });
