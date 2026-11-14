@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             profile.upazila || "-";
 
         document.getElementById("profileConsent").textContent =
-            profile.public_consent ? "Yes" : "No";
+    profile.public_listing_consent ? "Yes" : "No";
 
         message.textContent = "Profile loaded successfully!";
 
