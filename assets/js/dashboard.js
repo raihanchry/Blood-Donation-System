@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 division,
                 district,
                 upazila,
-                public_consent
+                public_listing_consent
             `)
             .eq("id", user.id)
             .single();
