@@ -84,8 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (error) throw error;
 
-                alert("Registration successful! Please verify your email.");
-                registerForm.reset();
+                alert("Registration successful! Please check your email for the verification code.");
+
+                window.location.href =
+                "verify-email.html?email=" + encodeURIComponent(email);
 
                 // Reset District Dropdown
                 const districtSelect = document.getElementById("district");
