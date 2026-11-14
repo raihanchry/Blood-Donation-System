@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Dashboard | BloodBridge</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .dashboard {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 25px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .profile-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .profile-item {
+            padding: 15px;
+            background: #f7f7f7;
+            border-radius: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .profile-item label {
+            display: block;
+            color: #777;
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
+
+        .profile-item p {
+            margin: 0;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .logout-btn {
+            background: #b00020;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background: #850018;
+        }
+
+        #dashboardMessage {
+            margin: 20px 0;
+        }
+
+        @media (max-width: 600px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="dashboard">
+
+        <div class="dashboard-header">
+            <div>
+                <h1>Member Dashboard</h1>
+                <p>Welcome to BloodBridge!</p>
+            </div>
+
+            <button id="logoutBtn" class="logout-btn">
+                Logout
+            </button>
+        </div>
+
+        <p id="dashboardMessage">Loading your profile...</p>
+
+        <section class="profile-card">
+            <h2>My Profile</h2>
+
+            <div class="profile-grid">
+
+                <div class="profile-item">
+                    <label>Full Name</label>
+                    <p id="profileName">-</p>
+                </div>
+
+                <div class="profile-item">
+                    <label>Email Address</label>
+                    <p id="profileEmail">-</p>
+                </div>
+
+                <div class="profile-item">
+                    <label>Phone Number</label>
+                    <p id="profilePhone">-</p>
+                </div>
+
+                <div class="profile-item">
+                    <label>Blood Group</label>
+                    <p id="profileBlood">-</p>
+                </div>
+
+                <div class="profile-item">
+                    <label>Date of Birth</label>
+                    <p id="profileDob">-</p>
+                </div>
+
+                <div class="profile-item">
+                    <label>Division</label>
+                    <p id="profileDivision">-</p>
+                </div>
+
+                <div class="profile-item">
+                    <label>District</label>
+                    <p id="profileDistrict">-</p>
+                </div>
+
+                <div class="profile-item">
+                    <label>Upazila</label>
+                    <p id="profileUpazila">-</p>
+                </div>
+
+                <div class="profile-item">
+                    <label>Donor Directory Consent</label>
+                    <p id="profileConsent">-</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+
+</body>
+</html>
