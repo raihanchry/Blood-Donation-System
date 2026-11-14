@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification | BloodBridge</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .verify-container {
+            max-width: 430px;
+            margin: 100px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .verify-container input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            font-size: 22px;
+            text-align: center;
+            letter-spacing: 8px;
+            box-sizing: border-box;
+        }
+
+        .verify-container button {
+            width: 100%;
+            padding: 13px;
+            background: #b00020;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #resendBtn {
+            background: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="verify-container">
+
+        <h1>Email Verification</h1>
+
+        <p>Enter the 6-digit verification code sent to your email.</p>
+
+        <form id="verifyForm">
+
+            <input
+                type="text"
+                id="otpCode"
+                placeholder="000000"
+                maxlength="6"
+                inputmode="numeric"
+                pattern="[0-9]{6}"
+                required
+            >
+
+            <button type="submit" id="verifyBtn">
+                Verify Email
+            </button>
+
+        </form>
+
+        <button type="button" id="resendBtn">
+            Resend Code
+        </button>
+
+        <p id="verifyMessage"></p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase.js"></script>
+    <script src="assets/js/verify-email.js"></script>
+
+</body>
+</html>
