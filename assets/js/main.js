@@ -127,8 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (error) throw error;
 
                 alert("Login successful!");
-                window.location.href = "index.html";
-
+                window.location.href = "member-dashboard.html";
             } catch (error) {
                 alert("Login failed: " + error.message);
 
