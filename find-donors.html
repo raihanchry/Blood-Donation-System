@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Donors | BloodBridge</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">BloodBridge</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="register.html">Register</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<main class="register-container">
+    <section class="register-form">
+        <h1>Find Blood Donors</h1>
+        <p>Search for available donor listings.</p>
+
+        <label for="searchBlood">Blood Group</label>
+        <select id="searchBlood">
+            <option value="">All Blood Groups</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+        </select>
+
+        <label for="searchDistrict">District</label>
+        <input type="text" id="searchDistrict" placeholder="Enter district">
+
+        <button type="button" class="register-btn" id="searchDonors">
+            Search Donors
+        </button>
+
+        <div id="donorResults"></div>
+    </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
