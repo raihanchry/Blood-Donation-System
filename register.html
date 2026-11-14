@@ -21,20 +21,26 @@
 
 <main class="register-container">
     <form class="register-form" id="registerForm">
+
         <h1>Create Account</h1>
         <p>Join BloodBridge and help connect people.</p>
 
         <label for="fullName">Full Name</label>
-        <input type="text" id="fullName" placeholder="Enter your full name" required>
+        <input type="text" id="fullName"
+               placeholder="Enter your full name" required>
 
         <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
+        <input type="email" id="email"
+               placeholder="Enter your email" required>
 
         <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+        <input type="tel" id="phone"
+               placeholder="Enter your phone number" required>
 
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Create a password" minlength="8" required>
+        <input type="password" id="password"
+               placeholder="Create a password"
+               minlength="8" required>
 
         <label for="dob">Date of Birth</label>
         <input type="date" id="dob" required>
@@ -52,29 +58,55 @@
             <option>O-</option>
         </select>
 
+        <!-- Division -->
+        <label for="division">Division</label>
+        <select id="division" required>
+            <option value="">Select Division</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="Chattogram">Chattogram</option>
+            <option value="Rajshahi">Rajshahi</option>
+            <option value="Khulna">Khulna</option>
+            <option value="Barishal">Barishal</option>
+            <option value="Sylhet">Sylhet</option>
+            <option value="Rangpur">Rangpur</option>
+            <option value="Mymensingh">Mymensingh</option>
+        </select>
+
+        <!-- District -->
         <label for="district">District</label>
-        <input type="text" id="district" placeholder="Enter your district" required>
+        <select id="district" required disabled>
+            <option value="">Select Division First</option>
+        </select>
 
         <label for="upazila">Upazila</label>
-        <input type="text" id="upazila" placeholder="Enter your upazila" required>
+<input
+    type="text"
+    id="upazila"
+    placeholder="Enter your Upazila"
+    required
+>
 
+        <!-- Consent -->
         <label class="consent">
-            <input type="checkbox" id="publicConsent" required>
+            <input type="checkbox" id="publicConsent">
             I agree to share limited profile information in the donor directory.
         </label>
 
-        <button type="submit" class="register-btn">Create Account</button>
+        <button type="submit" class="register-btn">
+            Create Account
+        </button>
 
         <p class="login-text">
             Already have an account?
             <a href="login.html">Login</a>
         </p>
+
     </form>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="assets/js/supabase.js"></script>
 <script src="assets/js/main.js"></script>
+
 </body>
 </html>
-
