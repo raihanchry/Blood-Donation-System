@@ -1,119 +1,224 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+  </head>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BloodBridge - Connect blood donors and save lives.">
-    <title>BloodBridge | Donate Blood, Save Lives</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body>
+  <body>
+    <title>LifeDrop Bold</title>
+    <meta name="claude:viewport-fit-sides" content="cover" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    />
 
-<header class="navbar">
-    <a href="index.html" class="logo">
-        <span class="logo-icon">♥</span> BloodBridge
-    </a>
+    <link rel="stylesheet" href="assets/styles/style.css" />
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="#about">About</a>
-        <a href="find-donors.html">Find Donors</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="nav-buttons">
-        <a href="login.html" class="login-btn">Login</a>
-        <a href="register.html" class="primary-btn">Become a Donor</a>
-    </div>
-</header>
-
-<section class="hero">
-    <div class="hero-content">
-        <span class="tag">♥ Every Drop Counts</span>
-
-        <h1>Donate Blood.<br>
-            <span>Save Lives.</span>
-        </h1>
-
+    <div class="notice" id="notice" role="status">
+      <div class="wrap notice-in">
         <p>
-            A single donation can make a difference.
-            Join our community and help connect blood donors
-            with people who need them.
+          <span class="dot" aria-hidden="true"></span
+          ><b data-i18n="nt_b">Urgent:</b>
+          <span data-i18n="nt_t"
+            >A+ blood is needed today at Dhaka Medical College Hospital.</span
+          >
+          <a href="#requests" data-i18n="nt_a">See requests</a>
         </p>
-
-        <div class="hero-buttons">
-            <a href="register.html" class="primary-btn">
-                Become a Donor →
-            </a>
-
-            <a href="find-donors.html" class="secondary-btn">
-                Find Blood Donors
-            </a>
-        </div>
-
-        <div class="hero-info">
-            <span>✓ Free Registration</span>
-            <span>✓ Trusted Community</span>
-        </div>
+        <button type="button" id="notice-x" aria-label="Close">&times;</button>
+      </div>
     </div>
+    <header>
+      <div class="wrap bar">
+        <a class="logo disp" href="#home" aria-label="LifeDrop">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C12 2 5 10 5 15a7 7 0 0 0 14 0c0-5-7-13-7-13z" /></svg
+          >LifeDrop
+        </a>
+        <nav aria-label="Main">
+          <a href="#find" data-i18n="nav_find">Find donor</a>
+          <a href="#requests" data-i18n="nav_requests">Requests</a>
+          <a href="#how" data-i18n="nav_how">How it works</a>
+          <a href="#contact" data-i18n="nav_contact">Contact</a>
+        </nav>
+        <div class="tools">
+          <div class="seg" role="group" aria-label="Language">
+            <button type="button" id="lang-en" aria-pressed="true">EN</button>
+            <button type="button" id="lang-bn" aria-pressed="false">
+              বাংলা
+            </button>
+          </div>
+          <button
+            type="button"
+            class="btn icon-btn"
+            id="theme"
+            aria-label="Toggle dark mode"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+            </svg>
+          </button>
+          <button type="button" class="btn" data-i18n="login" data-demo>
+            Login
+          </button>
+          <button type="button" class="btn solid" data-i18n="become" data-demo>
+            Become donor
+          </button>
+        </div>
+      </div>
+    </header>
 
-    <div class="hero-image">
-        <img
-            src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=900"
-            alt="Blood donation"
-        >
-        <div class="floating-card">
-            <span class="heart">♥</span>
-            <div>
-                <strong>Be a Hero</strong>
-                <small>Give the gift of life.</small>
+    <main>
+      <div class="hero" id="home">
+        <div class="wrap">
+          <div>
+            <h1 class="disp" data-i18n="h1">Give blood. Give a tomorrow.</h1>
+            <p class="sub" data-i18n="sub">
+              Find a donor in your district in seconds, or register to be the
+              one someone finds.
+            </p>
+            <div class="cta">
+              <button
+                type="button"
+                class="btn white"
+                data-i18n="donate"
+                data-demo
+              >
+                Donate blood
+              </button>
+              <a class="btn" href="#find" data-i18n="request">Request blood</a>
             </div>
+          </div>
+          <div class="fact">
+            <b data-i18n="fact_n">3</b>
+            <span data-i18n="fact_t"
+              >patients can be helped by one donation.</span
+            >
+          </div>
         </div>
-    </div>
-</section>
+      </div>
 
-<section class="features" id="about">
-    <div class="section-heading">
-        <span>HOW IT WORKS</span>
-        <h2>Making Blood Donation Easier</h2>
-        <p>Three simple steps to become part of the lifesaving community.</p>
-    </div>
-
-    <div class="feature-grid">
-        <div class="feature-card">
-            <div class="feature-icon">♥</div>
-            <h3>Register as Donor</h3>
-            <p>Create your profile and share your willingness to donate blood.</p>
+      <section id="find">
+        <div class="wrap">
+          <h2 class="sec-title disp" data-i18n="pick_title">
+            Pick a blood group
+          </h2>
+          <div
+            class="tiles"
+            id="tiles"
+            role="group"
+            aria-label="Blood group"
+          ></div>
+          <div class="compat" id="compat"></div>
+          <div class="fields">
+            <select id="f-div" aria-label="Division"></select>
+            <select id="f-dist" aria-label="District"></select>
+            <select id="f-upa" aria-label="Upazila"></select>
+            <input
+              id="f-area"
+              type="search"
+              data-i18n-ph="area_ph"
+              placeholder="Area (optional)"
+              aria-label="Area"
+            />
+            <button
+              type="button"
+              class="btn solid"
+              id="f-go"
+              data-i18n="search"
+            >
+              Search
+            </button>
+          </div>
+          <p class="count" id="count" aria-live="polite"></p>
+          <div class="cards" id="donors"></div>
+          <p class="note" data-i18n="sample_note">
+            Donors shown here are sample entries for the preview.
+          </p>
         </div>
+      </section>
 
-        <div class="feature-card">
-            <div class="feature-icon">⌕</div>
-            <h3>Find Blood Donors</h3>
-            <p>Find consenting donors by blood group and location.</p>
+      <section class="urgent" id="requests">
+        <div class="wrap">
+          <h2 class="sec-title disp" data-i18n="urg_title">Needed now</h2>
+          <div class="reqs" id="reqs"></div>
         </div>
+      </section>
 
-        <div class="feature-card">
-            <div class="feature-icon">✚</div>
-            <h3>Save Lives</h3>
-            <p>Connect with the donor community and support people in need.</p>
+      <section id="how">
+        <div class="wrap">
+          <h2 class="sec-title disp" data-i18n="how_title">How it works</h2>
+          <div class="steps">
+            <div class="step">
+              <span class="n" data-i18n="n1">1</span>
+              <h3 data-i18n="s1_t">Register</h3>
+              <p data-i18n="s1_d">
+                Add your name, blood group, district and phone number. It takes
+                two minutes.
+              </p>
+            </div>
+            <div class="step">
+              <span class="n" data-i18n="n2">2</span>
+              <h3 data-i18n="s2_t">Get matched</h3>
+              <p data-i18n="s2_d">
+                Patients search by group and district. You get a request when
+                your group is needed nearby.
+              </p>
+            </div>
+            <div class="step">
+              <span class="n" data-i18n="n3">3</span>
+              <h3 data-i18n="s3_t">Donate</h3>
+              <p data-i18n="s3_d">
+                Visit the hospital or blood bank, give blood, then rest. You can
+                donate again after four months.
+              </p>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
-<section class="cta">
-    <h2>Be Someone's Reason to Smile.</h2>
-    <p>Become a blood donor and make a difference.</p>
-    <a href="register.html" class="white-btn">Join Our Community →</a>
-</section>
+      <div class="cta-band">
+        <div class="wrap">
+          <h2 class="disp" data-i18n="cta_title">
+            Be the donor someone finds.
+          </h2>
+          <button type="button" class="btn" data-i18n="become" data-demo>
+            Become donor
+          </button>
+        </div>
+      </div>
+    </main>
 
-<footer id="contact">
-    <h2>♥ BloodBridge</h2>
-    <p>Connecting donors. Supporting lives.</p>
-    <p>© 2026 BloodBridge. All rights reserved.</p>
-</footer>
-
-<script src="..js/main.js"></script>
-</body>
+    <footer>
+      <div class="wrap">
+        <div class="foot">
+          <div>
+            <h3>LifeDrop</h3>
+            <p data-i18n="foot_about">
+              A volunteer-run network that connects blood donors with patients.
+            </p>
+          </div>
+          <div>
+            <h3 data-i18n="foot_links">Quick links</h3>
+            <a href="#find" data-i18n="nav_find">Find donor</a>
+            <a href="#requests" data-i18n="nav_requests">Requests</a>
+            <a href="#how" data-i18n="nav_how">How it works</a>
+          </div>
+          <div id="contact">
+            <h3 data-i18n="nav_contact">Contact</h3>
+            <p>info@lifedrop.example</p>
+            <p>+880 1XXX-XXXXXX</p>
+          </div>
+        </div>
+        <p class="copy" data-i18n="copy">
+          LifeDrop, 2026. Donor entries on this page are placeholders.
+        </p>
+      </div>
+    </footer>
+    <div class="toast" id="toast" hidden></div>
+  </body>
+  <script src="assets/scripts/script.js"></script>
 </html>
